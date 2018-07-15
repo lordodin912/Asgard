@@ -128,6 +128,7 @@ static void *get_cpu_dbs_info_s(int cpu)				\
  * cs_*: Conservative governor
  * ac_*: Alucard governor
  * dk_*: Darkness governor
+ * ex_*: ElementalX governor
  * nm_*: Nightmare governor
  */
 
@@ -169,6 +170,12 @@ struct cs_cpu_dbs_info_s {
 	struct cpu_dbs_common_info cdbs;
 	unsigned int down_skip;
 	unsigned int requested_freq;
+	unsigned int enable:1;
+};
+
+struct ex_cpu_dbs_info_s {
+	struct cpu_dbs_common_info cdbs;
+	unsigned int down_floor;
 	unsigned int enable:1;
 };
 
@@ -216,6 +223,16 @@ struct cs_dbs_tuners {
 	u64 twostep_time;
 };
 
+struct ex_dbs_tuners {
+	unsigned int ignore_nice_load;
+	unsigned int sampling_rate;
+	unsigned int up_threshold;
+	unsigned int down_differential;
+	unsigned int active_floor_freq;
+	unsigned int sampling_down_factor;
+	unsigned int powersave;
+};
+
 struct ac_dbs_tuners {
 	unsigned int ignore_nice_load;
 	unsigned int sampling_rate;
@@ -257,6 +274,7 @@ struct common_dbs_data {
 	#define GOV_CONSERVATIVE	1
 	#define GOV_ALUCARD			2
 	#define GOV_DARKNESS		3
+	#define GOV_ELEMENTALX		2
 	#define GOV_NIGHTMARE		4
 	int governor;
 	struct attribute_group *attr_group_gov_sys; /* one governor - system */
@@ -273,6 +291,7 @@ struct common_dbs_data {
 	void (*gov_dbs_timer)(struct work_struct *work);
 	void (*gov_check_cpu)(int cpu, unsigned int load);
 	int (*init)(struct dbs_data *dbs_data);
+	int (*init_ex)(struct dbs_data *dbs_data, struct cpufreq_policy *policy);
 	void (*exit)(struct dbs_data *dbs_data);
 
 	/* Governor specific ops, see below */
@@ -283,6 +302,7 @@ struct common_dbs_data {
 struct dbs_data {
 	struct common_dbs_data *cdata;
 	unsigned int min_sampling_rate;
+	struct cpufreq_frequency_table *freq_table;
 	int usage_count;
 	void *tuners;
 
