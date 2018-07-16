@@ -12,7 +12,6 @@ obj-$(CONFIG_CPU_FREQ_GOV_ONDEMAND)	+= cpufreq_ondemand.o
 obj-$(CONFIG_CPU_FREQ_GOV_CONSERVATIVE)	+= cpufreq_conservative.o
 obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVE)	+= cpufreq_interactive.o
 obj-$(CONFIG_CPU_FREQ_GOV_COMMON)		+= cpufreq_governor.o
-<<<<<<< HEAD
 obj-$(CONFIG_CPU_FREQ_GOV_ELECTRON)	+= cpufreq_electron.o
 obj-$(CONFIG_CPU_FREQ_GOV_ALUCARD)	+= cpufreq_alucard.o
 obj-$(CONFIG_CPU_FREQ_GOV_BARRY_ALLEN)	+= cpufreq_barry_allen.o
@@ -36,16 +35,6 @@ obj-$(CONFIG_CPU_FREQ_GOV_NIGHTMARE)	+= cpufreq_nightmare.o
 obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX_EPS)		+= cpufreq_smartmax_eps.o
 obj-$(CONFIG_CPU_FREQ_GOV_TRIPNDROID)	+= cpufreq_tripndroid.o
 obj-$(CONFIG_CPU_FREQ_GOV_WAVE)		+= cpufreq_wave.o
-=======
-obj-$(CONFIG_CPU_FREQ_GOV_TRIPNDROID)	+= cpufreq_tripndroid.o
-obj-$(CONFIG_CPU_BOOST)			+= cpu-boost.o
-obj-$(CONFIG_FINGERPRINT_BOOST)		+= fp-boost.o
-# CPU Input Boost
-obj-$(CONFIG_CPU_INPUT_BOOST)		+= cpu_input_boost.o
-# CPU Boost on Thread Migration 
-obj-$(CONFIG_CPU_BOOST)			+= cpu-boost.o
-
->>>>>>> fe67360e93ab... cpufreq: add tripndroid cpu governor
 
 obj-$(CONFIG_CPUFREQ_DT)		+= cpufreq-dt.o
 
