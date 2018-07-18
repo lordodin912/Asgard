@@ -18,6 +18,7 @@ obj-$(CONFIG_CPU_FREQ_GOV_BIOSHOCK) 	+= cpufreq_bioshock.o
 obj-$(CONFIG_CPU_FREQ_GOV_BLU_ACTIVE)	+= cpufreq_blu_active.o
 obj-$(CONFIG_CPU_FREQ_GOV_CONSERVATIVE)	+= cpufreq_conservative.o
 obj-$(CONFIG_CPU_FREQ_GOV_CONSERVATIVEX)   += cpufreq_conservativex.o
+obj-$(CONFIG_CPU_FREQ_GOV_CULTIVATION)	+= cpufreq_cultivation.o
 obj-$(CONFIG_CPU_FREQ_GOV_DANCEDANCE)   += cpufreq_dancedance.o
 obj-$(CONFIG_CPU_FREQ_GOV_DARKNESS)     += cpufreq_darkness.o
 obj-$(CONFIG_CPU_FREQ_GOV_DESPAIR)	+= cpufreq_despair.o
@@ -34,6 +35,7 @@ obj-$(CONFIG_CPU_FREQ_GOV_NIGHTMARE)	+= cpufreq_nightmare.o
 obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX_EPS)		+= cpufreq_smartmax_eps.o
 obj-$(CONFIG_CPU_FREQ_GOV_TRIPNDROID)	+= cpufreq_tripndroid.o
 obj-$(CONFIG_CPU_FREQ_GOV_WAVE)		+= cpufreq_wave.o
+obj-$(CONFIG_CPU_FREQ_GOV_YANKACTIVE)		+= cpufreq_yankactive.o
 # CPU Input Boost
 +obj-$(CONFIG_CPU_INPUT_BOOST)		+= cpu_input_boost.o
 
