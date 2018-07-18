@@ -6929,8 +6929,8 @@ static int smbchg_battery_set_property(struct power_supply *psy,
 		break;
 #ifdef CONFIG_HTC_BATT
 	case POWER_SUPPLY_PROP_TYPEC_SINK_CURRENT:
-		pr_smb(PR_STATUS, "Received resistor change (%d)->(%d)\n",
-		       val->intval, (int)chip->utc.sink_current);
+		pr_smb(PR_STATUS, "Received resistor change %d -> %d, original sink_current: %d\n",
+				val->intval, (int)chip->utc.sink_current, sink_current_origin);
 
 		if (!delayed_work_pending(&chip->sink_current_change_work)) {
 			pr_smb(PR_STATUS, "Set original resistor as (%d)\n",
