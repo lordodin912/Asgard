@@ -256,6 +256,12 @@ config CPU_FREQ_DEFAULT_GOV_SCHED
 	  cpu frequency using CPU utilization estimates from the
 	  scheduler.
 
+config CPU_FREQ_DEFAULT_GOV_HYPER
+	bool "HYPER"
+	select CPU_FREQ_GOV_HYPER
+	---help---
+	  Use the CPUFreq governor 'HYPER' as default.
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -519,6 +525,14 @@ config CPU_FREQ_GOV_SCHED
 	  If in doubt, say N.
 
 comment "CPU frequency scaling drivers"
+
+config CPU_FREQ_GOV_HYPER
+	tristate "'HYPER' cpufreq governor"
+	depends on CPU_FREQ
+	---help---
+	  'HYPER' - a tweaked "ondemand" based smart and smooth optimized governor!
+
+	  If in doubt, say Y
 
 config CPUFREQ_DT
 	tristate "Generic DT based cpufreq driver"
